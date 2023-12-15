@@ -38,7 +38,7 @@ export default function Home(){
     if(!render){
         return (<Text>carregando...</Text>)
     }
-    console.log('passou aqui')
+    // console.log('passou aqui')
     return(
         <>
             <StatusBar />
