@@ -1,8 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import Home from './src/Pages/Home';
-import Notfication from './src/services/Notification';
-import * as Notifications from 'expo-notifications';
-import { useEffect } from 'react';
+import { StatusBar } from "expo-status-bar";
+import Home from "./src/Pages/Home";
+import Notfication from "./src/services/Notification";
+import * as Notifications from "expo-notifications";
+import { useEffect } from "react";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -12,11 +12,8 @@ Notifications.setNotificationHandler({
   }),
 });
 export default function App() {
-  useEffect(()=>{
+  useEffect(() => {
     Notfication();
-
-  },[])
-  return (  
-      <Home/>
-  );
+  }, []);
+  return <Home/>;
 }
