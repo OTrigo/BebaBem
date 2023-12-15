@@ -1,19 +1,15 @@
 import LottieView from "lottie-react-native";
-
-
-
-
-export default function(){
-    
-    return(
-        <LottieView
-            autoPlay
-            source={require('../assets/Lottie/drink.json')}
-            style={{
-                alignSelf: "center",
-                width: 250,
-                height: 500,
-              }}
-        />
-    )
+function Animation(display: any): React.JSX.Element {
+  return (
+    <LottieView
+      autoPlay
+      source={require("../assets/Lottie/drink.json")}
+      style={{
+        display: display ? "none" : "flex",
+        position: "absolute",
+        alignSelf: "center",
+      }}
+    />
+  );
 }
+export default Animation;

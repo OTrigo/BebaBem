@@ -5,6 +5,7 @@ import style from "./style";
 import Storage from "../../services/Storage";
 import GetData from "../../services/GetData";
 import { useEffect, useRef, useState } from "react";
+import Animation from "../../services/Animation";
 
 export default function Home() {
   const animationRef = useRef<LottieView>(null);
@@ -50,6 +51,7 @@ export default function Home() {
             }}
             source={require("../../assets/Lottie/bottle.json")}
           />
+          <Animation display={false}/>
         </View>
 
         <View>

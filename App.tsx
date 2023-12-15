@@ -16,5 +16,5 @@ export default function App() {
   useEffect(() => {
     Notfication();
   }, []);
-  return <Animation/>;
+  return <Home/>;
 }
