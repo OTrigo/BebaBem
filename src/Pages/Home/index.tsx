@@ -2,14 +2,17 @@ import {ScrollView, StatusBar, TouchableOpacity, Image } from "react-native"
 import { View, Text } from "react-native"
 import SVGImage from '../../assets/images/bottle2.svg';
 import style from "./style";
+import Storage from '../../services/Storage';
 
 
 
 export default function Home(){
+    
     return(
         <>
             <StatusBar />
                 <ScrollView>
+
                     <Text>Tela Home</Text>
                     <Text style={style.info}>Você bebeu  200ml/2L </Text>
                     <View>
