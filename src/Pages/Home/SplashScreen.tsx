@@ -1,7 +1,7 @@
 import React from "react";
 
 const SplashScreen = ()=>{
-  return
+  return <></>
 }
 
 export default SplashScreen
