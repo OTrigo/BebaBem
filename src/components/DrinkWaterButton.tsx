@@ -1,9 +1,7 @@
-import { ScrollView, StatusBar, TouchableOpacity, Image } from "react-native";
+import { TouchableOpacity, Image } from "react-native";
 import { View, Text } from "react-native";
 import LottieView from "lottie-react-native";
-import { useRef, useState } from "react";
 import Storage from "../services/Storage";
-import GetData from "../services/GetData";
 
 export const equi = 0.055;
 
@@ -20,6 +18,7 @@ const DrinkWaterButton = ({
   water,
   setWater,
 }: DrinkWaterProps) => {
+  
   function handleAdd(value: number) {
     const old = water * equi;
     Storage(value);

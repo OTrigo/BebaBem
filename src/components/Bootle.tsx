@@ -7,13 +7,13 @@ import { equi } from "./DrinkWaterButton";
 
 interface BootleProps {
   setWater: React.Dispatch<React.SetStateAction<number>>;
+  water: number;
 }
 
-const Bootle = ({ setWater }: BootleProps) => {
-  const animationRef = useRef<LottieView>(null);
+const Bootle = ({ setWater, water }: BootleProps) => {
 
   async function pegarDados() {
-    const get = await GetData().then((value) => {
+    await GetData().then((value) => {
       if (value) {
         setWater(parseInt(value));
         animationRef.current?.play(0, parseInt(value) * equi);
@@ -23,7 +23,9 @@ const Bootle = ({ setWater }: BootleProps) => {
 
   useEffect(() => {
     pegarDados();
-  }, []);
+  }, [water]);
+
+  const animationRef = useRef<LottieView>(null);
 
   return (
     <View>
