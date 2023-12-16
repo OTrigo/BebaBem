@@ -17,7 +17,7 @@ export default function Notfication() {
         data: [],
       },
       trigger: {
-        seconds: 1,
+        seconds: 60,
       },
     });
   };

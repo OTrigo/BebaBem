@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { View } from "react-native";
 import LottieView from "lottie-react-native";
-import Animation from "../services/Animation";
 import GetData from "../services/GetData";
 import { equi } from "./DrinkWaterButton";
 
@@ -39,7 +38,6 @@ const Bootle = ({ setWater, water }: BootleProps) => {
         }}
         source={require("../assets/Lottie/bottle.json")}
       />
-      <Animation display={false} />
     </View>
   );
 };
