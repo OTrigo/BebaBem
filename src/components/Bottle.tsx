@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { View } from "react-native";
 import LottieView from "lottie-react-native";
 import GetData from "../services/GetData";
@@ -11,7 +11,7 @@ interface BottleProps {
 const Bottle = ({ animationRef, waterInBottle }: BottleProps) => {
   const animateThis = (initial: number, final: number) => {
     const equi = 0.055;
-    return animationRef.current?.play(initial* equi, final * equi);
+    return animationRef.current?.play(initial * equi, final * equi);
   };
 
   async () => {
@@ -27,7 +27,6 @@ const Bottle = ({ animationRef, waterInBottle }: BottleProps) => {
     const initialValue = waterInBottle?.old;
     const finalValue = waterInBottle?.new;
 
-    
     animateThis(initialValue, finalValue);
   };
 

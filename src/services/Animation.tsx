@@ -1,9 +1,9 @@
 import LottieView from "lottie-react-native";
-interface AnimationProps{
-  display : boolean;
+interface AnimationProps {
+  display: boolean;
 }
 
-function Animation({display}:AnimationProps ) {
+function Animation({ display }: AnimationProps) {
   return (
     <LottieView
       autoPlay

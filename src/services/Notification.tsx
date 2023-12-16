@@ -1,5 +1,4 @@
 import * as Notfications from "expo-notifications";
-import { Button, View } from "react-native";
 
 export default function Notfication() {
   const random = Math.floor(Math.random() * 4);

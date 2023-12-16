@@ -25,20 +25,17 @@ export default function Home({ navigation }: any) {
           title="settings"
           onPress={() => navigation.navigate("Settings")}
         />
-        <Bottle animationRef={animationRef} waterInBottle = {waterInBottle} />
+        <Bottle animationRef={animationRef} waterInBottle={waterInBottle} />
         <Animation display={true} />
         <View style={style.drinkWaterButtons}>
           <DrinkWaterButton
             qtdWaterButton={50}
             animationRef={animationRef}
-            waterInBottle ={waterInBottle}
-            setWaterInBottle ={setWaterInBottle}
+            waterInBottle={waterInBottle}
+            setWaterInBottle={setWaterInBottle}
           />
         </View>
       </ScrollView>
     </>
   );
-}
-function pegarDados() {
-  throw new Error("Function not implemented.");
 }
