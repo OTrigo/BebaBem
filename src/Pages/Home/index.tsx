@@ -4,45 +4,35 @@ import LottieView from "lottie-react-native";
 import style from "./style";
 import React, { useRef, useState } from "react";
 import SplashScreenComponent from "../SplashScreen";
-import Bootle from "../../components/Bootle";
+import Bottle from "../../components/Bottle";
 import DrinkWaterButton from "../../components/DrinkWaterButton";
 import Animation from "../../services/Animation";
 
 export default function Home({ navigation }: any) {
   const animationRef = useRef<LottieView>(null);
-  const [water, setWater] = useState(0); //valor da agua em ML
+  const [waterInBottle, setWaterInBottle] = useState({
+    old: 0,
+    new: 0,
+  });
 
   return (
     <>
       <SplashScreenComponent />
       <StatusBar />
       <ScrollView>
-        <Text style={style.info}>{`Você bebeu ${water}ml/2L`}</Text>
+        <Text style={style.info}>{`Você bebeu ${waterInBottle.new}ml/2L`}</Text>
         <Button
           title="settings"
           onPress={() => navigation.navigate("Settings")}
         />
-        <Bootle setWater={setWater} water={water} />
-        {/* melhorar animação e o tempo dela*/}
+        <Bottle animationRef={animationRef} waterInBottle = {waterInBottle} />
         <Animation display={true} />
         <View style={style.drinkWaterButtons}>
           <DrinkWaterButton
             qtdWaterButton={50}
             animationRef={animationRef}
-            water={water}
-            setWater={setWater}
-          />
-          <DrinkWaterButton
-            qtdWaterButton={150}
-            animationRef={animationRef}
-            water={water}
-            setWater={setWater}
-          />
-          <DrinkWaterButton
-            qtdWaterButton={300}
-            animationRef={animationRef}
-            water={water}
-            setWater={setWater}
+            waterInBottle ={waterInBottle}
+            setWaterInBottle ={setWaterInBottle}
           />
         </View>
       </ScrollView>
