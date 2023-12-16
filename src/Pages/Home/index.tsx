@@ -19,7 +19,7 @@ export default function Home({ navigation }: any) {
     <>
       <SplashScreenComponent />
       <StatusBar />
-      <ScrollView>
+      <ScrollView style={style.homeContainer}>
         <Text style={style.info}>{`Você bebeu ${waterInBottle.new}ml/2L`}</Text>
         <Button
           title="settings"
@@ -30,6 +30,18 @@ export default function Home({ navigation }: any) {
         <View style={style.drinkWaterButtons}>
           <DrinkWaterButton
             qtdWaterButton={50}
+            animationRef={animationRef}
+            waterInBottle={waterInBottle}
+            setWaterInBottle={setWaterInBottle}
+          />
+          <DrinkWaterButton
+            qtdWaterButton={150}
+            animationRef={animationRef}
+            waterInBottle={waterInBottle}
+            setWaterInBottle={setWaterInBottle}
+          />
+          <DrinkWaterButton
+            qtdWaterButton={300}
             animationRef={animationRef}
             waterInBottle={waterInBottle}
             setWaterInBottle={setWaterInBottle}

@@ -48,7 +48,7 @@ const DrinkWaterButton = ({
           }}
         />
       </TouchableOpacity>
-      <Text>50ml</Text>
+      <Text>{qtdWaterButton}ml</Text>
     </View>
   );
 };

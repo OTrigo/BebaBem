@@ -1,6 +1,9 @@
 import { StyleSheet } from "react-native";
 
 const  style = StyleSheet.create({
+    homeContainer:{
+        padding: "4%"
+    },
     info:{
         textAlign: 'center',
         fontSize: 30,
@@ -11,6 +14,8 @@ const  style = StyleSheet.create({
     },
     drinkWaterButtons:{
         display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         flexDirection: 'row'
     }
 })
