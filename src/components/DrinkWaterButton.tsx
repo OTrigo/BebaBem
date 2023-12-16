@@ -8,23 +8,34 @@ export const equi = 0.055;
 interface DrinkWaterProps {
   qtdWaterButton: number;
   animationRef: React.RefObject<LottieView>;
-  water: number;
-  setWater: React.Dispatch<React.SetStateAction<number>>;
+  waterInBottle: { old: number; new: number };
+  setWaterInBottle: React.Dispatch<
+    React.SetStateAction<{ old: number; new: number }>
+  >;
 }
 
 const DrinkWaterButton = ({
   qtdWaterButton,
   animationRef,
-  water,
-  setWater,
+  waterInBottle,
+  setWaterInBottle,
 }: DrinkWaterProps) => {
-  
   function handleAdd(value: number) {
-    const old = water * equi;
     Storage(value);
-    setWater(water + value);
-    const anime = water * equi;
-    animationRef.current?.play(old, anime);
+
+    const newValue = waterInBottle.new + value;
+    const oldValue = waterInBottle.new;
+
+    const initialAnimation = oldValue * equi;
+    const finalAnimation = newValue * equi;
+
+    console.log(initialAnimation, finalAnimation);
+    animationRef.current?.play(10, 15);
+
+    setWaterInBottle({
+      old: oldValue,
+      new: newValue,
+    });
   }
 
   return (
