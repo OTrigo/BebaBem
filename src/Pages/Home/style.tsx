@@ -8,6 +8,10 @@ const  style = StyleSheet.create({
     },
     SVG:{
         alignSelf: 'center'
+    },
+    drinkWaterButtons:{
+        display: 'flex',
+        flexDirection: 'row'
     }
 })
 export default style;
