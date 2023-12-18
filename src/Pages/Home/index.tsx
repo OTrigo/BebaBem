@@ -1,4 +1,5 @@
-import { Button, ScrollView, StatusBar, View } from "react-native";
+import { Button, ScrollView, StatusBar, View, Image } from "react-native";
+import { Feather } from '@expo/vector-icons'; 
 import { Text } from "react-native";
 import LottieView from "lottie-react-native";
 import style from "./style";
@@ -7,6 +8,7 @@ import SplashScreenComponent from "../SplashScreen";
 import Bottle from "../../components/Bottle";
 import DrinkWaterButton from "../../components/DrinkWaterButton";
 import Animation from "../../services/Animation";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function Home({ navigation }: any) {
   const animationRef = useRef<LottieView>(null);
@@ -21,10 +23,9 @@ export default function Home({ navigation }: any) {
       <StatusBar />
       <ScrollView style={style.homeContainer}>
         <Text style={style.info}>{`Você bebeu ${waterInBottle.new}ml/2L`}</Text>
-        <Button
-          title="settings"
-          onPress={() => navigation.navigate("Settings")}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
+          <Feather name="settings" size={24} color="black" />
+        </TouchableOpacity>
         <Bottle animationRef={animationRef} waterInBottle={waterInBottle} />
         <Animation display={true} />
         <View style={style.drinkWaterButtons}>
