@@ -20,7 +20,7 @@ export default async function Notfication() {
         data: [],
       },
       trigger: {
-        seconds: (timer)?parseInt(timer): 3600,
+        seconds: (timer) ? parseInt(timer): 3600,
         repeats: true
       },
     });
