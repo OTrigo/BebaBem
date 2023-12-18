@@ -17,6 +17,7 @@ export default function Notfication() {
       },
       trigger: {
         seconds: 60,
+        repeats: true
       },
     });
   };

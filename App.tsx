@@ -4,6 +4,7 @@ import * as Notifications from "expo-notifications";
 import { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import Stacks from "./src/components/Stacks";
+import RequestNotification from './src/services/RequestNotification';
 
 
 
@@ -17,6 +18,7 @@ Notifications.setNotificationHandler({
 export default function App() {
   useEffect(() => {
     Notification();
+    RequestNotification();
   }, []);
 
 
