@@ -3,12 +3,13 @@ import { Feather } from '@expo/vector-icons';
 import { Text } from "react-native";
 import LottieView from "lottie-react-native";
 import style from "./style";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import SplashScreenComponent from "../SplashScreen";
 import Bottle from "../../components/Bottle";
 import DrinkWaterButton from "../../components/DrinkWaterButton";
 import Animation from "../../services/Animation";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import GetData from "../../services/GetData";
 
 export default function Home({ navigation }: any) {
   const animationRef = useRef<LottieView>(null);
@@ -16,6 +17,20 @@ export default function Home({ navigation }: any) {
     old: 0,
     new: 0,
   });
+  async function pegaDados(){
+    await GetData().then((value:string|null)=>{
+      if(value){
+        setWaterInBottle({
+          old:0,
+          new: parseInt(value)
+        })
+      }
+     })
+  }
+
+  useEffect(()=>{
+    pegaDados();
+  },[])
 
   return (
     <>
@@ -24,7 +39,7 @@ export default function Home({ navigation }: any) {
       <ScrollView style={style.homeContainer}>
         <Text style={style.info}>{`Você bebeu ${waterInBottle.new}ml/2L`}</Text>
         <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
-          <Feather name="settings" size={24} color="black" />
+          <Feather name="settings" size={36} color="black" />
         </TouchableOpacity>
         <Bottle animationRef={animationRef} waterInBottle={waterInBottle} />
         <Animation display={true} />

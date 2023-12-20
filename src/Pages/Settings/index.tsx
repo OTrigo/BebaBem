@@ -9,13 +9,13 @@ export default function Settings() {
   let values: any;
   async function pegardados() {
     try {
-      values = await AsyncStorage.multiGet(["theme", "interval"])
-       setTheme(values[0][1])
-       setInterval(values[1][1])               
-
-    } catch (e) {
-      
-    }
+      values = await AsyncStorage.multiGet(["theme", "interval"]);
+      if (values[0][1] && values[1][1]) {
+        setTheme(values[0][1]);
+        setInterval(values[1][1]);
+      }
+      return
+    } catch (e) {}
   }
   useEffect(() => {
     pegardados();

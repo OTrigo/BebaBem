@@ -1,7 +1,11 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Notfications from "expo-notifications";
 
-export default function Notfication() {
+export default async function Notfication() {
+  const timer = await AsyncStorage.getItem('interval');
   const random = Math.floor(Math.random() * 4);
+  console.log(timer);
+
   const messages = [
     "hora de beber agua",
     "faz muito tempo que não bebe agua, vamos resolver isso",
@@ -16,7 +20,7 @@ export default function Notfication() {
         data: [],
       },
       trigger: {
-        seconds: 60,
+        seconds: (timer) ? parseInt(timer): 3600,
         repeats: true
       },
     });
