@@ -5,7 +5,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Settings() {
   const [theme, setTheme] = useState("claro");
-  const [interval, setInterval] = useState("3600");
+  const [interval, setInterval] = useState("7200");
   let values: any;
   async function pegardados() {
     try {
