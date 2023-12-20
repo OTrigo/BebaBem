@@ -4,7 +4,6 @@ import { Text } from "react-native";
 import LottieView from "lottie-react-native";
 import style from "./style";
 import React, { useRef, useState, useEffect } from "react";
-import SplashScreenComponent from "../SplashScreen";
 import Bottle from "../../components/Bottle";
 import DrinkWaterButton from "../../components/DrinkWaterButton";
 import Animation from "../../services/Animation";
@@ -34,7 +33,6 @@ export default function Home({ navigation }: any) {
 
   return (
     <>
-      <SplashScreenComponent />
       <StatusBar />
       <ScrollView style={style.homeContainer}>
         <Text style={style.info}>{`Você bebeu ${waterInBottle.new}ml/2L`}</Text>
