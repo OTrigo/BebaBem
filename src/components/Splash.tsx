@@ -1,11 +1,23 @@
 import { StyleSheet } from "react-native";
 import { AVPlaybackStatus, ResizeMode, Video } from "expo-av";
+import { useState } from "react";
+import { hideAsync } from "expo-splash-screen";
 
-export function Splash() {
+interface splashProps{
+  setIsPlaying: React.Dispatch<
+  React.SetStateAction<boolean>
+  >;
+}
 
-  const onPlaybackStatusUpdate = (status: AVPlaybackStatus)=>{
-    console.log(status)
-  }
+
+export function Splash({setIsPlaying}: splashProps) {
+ 
+
+  const onPlaybackStatusUpdate = (status: AVPlaybackStatus) => {
+    if (status.isLoaded) {
+      (!status.isPlaying) ? setIsPlaying(false) : null
+    }
+  };
 
   return (
     <Video
@@ -14,6 +26,7 @@ export function Splash() {
       source={require("../assets/Splash/splash.mp4")}
       isLooping={false}
       onPlaybackStatusUpdate={onPlaybackStatusUpdate}
+      shouldPlay={true}
     />
   );
 }
