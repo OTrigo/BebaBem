@@ -1,26 +1,23 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Notfications from "expo-notifications";
+import messages from '../assets/JSON/messages.json'
+
 
 export default async function Notfication() {
   const timer = await AsyncStorage.getItem('interval');
-  const random = Math.floor(Math.random() * 4);
-  console.log(timer);
+  const random = Math.floor(Math.random() * 10);
+  
 
-  const messages = [
-    "hora de beber agua",
-    "faz muito tempo que não bebe agua, vamos resolver isso",
-    "bebe agua vagabundo",
-    " o corno vai beber agua não",
-  ];
+  const message = messages;
   const Notify = async () => {
     await Notfications.scheduleNotificationAsync({
       content: {
         title: "Vamos beber Agua",
-        body: messages[random],
+        body: message.mensagens[random],
         data: [],
       },
       trigger: {
-        seconds: (timer) ? parseInt(timer): 3600,
+        seconds: (timer) ? parseInt(timer): 7200,
         repeats: true
       },
     });
