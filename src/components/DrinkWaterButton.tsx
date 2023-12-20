@@ -1,7 +1,7 @@
 import { TouchableOpacity, Image } from "react-native";
 import { View, Text } from "react-native";
 import LottieView from "lottie-react-native";
-import Storage from "../services/Storage";
+import Storage from "src/services/Storage";
 
 export const equi = 0.055;
 

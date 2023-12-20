@@ -35,7 +35,7 @@ const Bottle = ({ animationRef, waterInBottle }: BottleProps) => {
           width: 250,
           height: 500,
         }}
-        source={require("../assets/Lottie/bottle.json")}
+        source={require("assets/Lottie/bottle.json")}
       />
     </View>
   );

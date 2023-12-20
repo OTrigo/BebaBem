@@ -7,7 +7,7 @@ function Animation({ display }: AnimationProps) {
   return (
     <LottieView
       autoPlay
-      source={require("../assets/Lottie/drink.json")}
+      source={require("src/assets/Lottie/drink.json")}
       style={{
         display: display ? "none" : "flex",
         position: "absolute",

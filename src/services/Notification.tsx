@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Notfications from "expo-notifications";
-import messages from '../assets/JSON/messages.json'
+import messages from 'src/assets/JSON/messages.json'
 
 
 export default async function Notfication() {
