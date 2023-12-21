@@ -41,7 +41,6 @@ export default function Settings() {
         selectedValue={interval}
         onValueChange={(itemValue, itemIndex) => setInterval(itemValue)}
       >
-        <Picker.Item label="1 hora" value="3600" />
         <Picker.Item label="2 horas" value="7200" />
         <Picker.Item label="3 horas" value="10800" />
         <Picker.Item label="4 horas" value="14400" />

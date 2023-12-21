@@ -1,15 +1,15 @@
 import LottieView from "lottie-react-native";
 interface AnimationProps {
-  display: boolean;
+  opacity: number;
 }
 
-function Animation({ display }: AnimationProps) {
+function Animation({opacity} : AnimationProps) {
   return (
     <LottieView
       autoPlay
       source={require("../assets/Lottie/drink.json")}
       style={{
-        display: display ? "none" : "flex",
+        opacity: opacity,
         position: "absolute",
         alignSelf: "center",
       }}
