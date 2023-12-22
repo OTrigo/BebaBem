@@ -1,12 +1,12 @@
-import 'react-native-gesture-handler';
+import "react-native-gesture-handler";
 import Notification from "./src/services/Notification";
 import * as Notifications from "expo-notifications";
 import { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import Stacks from "./src/components/Stacks";
-import RequestNotification from './src/services/RequestNotification';
-
-
+import RequestNotification from "./src/services/RequestNotification";
+import { ThemeProvider } from "./src/contexts/DarkAndLight";
+import { useTheme } from "./src/contexts/DarkAndLight";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -16,15 +16,17 @@ Notifications.setNotificationHandler({
   }),
 });
 export default function App() {
+  const { isLightMode } = useTheme();
   useEffect(() => {
     Notification();
     RequestNotification();
   }, []);
 
-
-  return(
+  return (
     <NavigationContainer>
-      <Stacks />
+      <ThemeProvider>
+        <Stacks />
+      </ThemeProvider>
     </NavigationContainer>
-  )
+  );
 }
