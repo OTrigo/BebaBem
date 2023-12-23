@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import style from "../../style/globalTheme";
 
 export default function Settings() {
   const [theme, setTheme] = useState("claro");
@@ -27,17 +28,17 @@ export default function Settings() {
   }
 
   return (
-    <View>
-      <Text>Tema:</Text>
-      <Picker
+    <View style={style.LightBackgroundSetting}>
+      <Text style={style.LightLabel}>Tema:</Text>
+      <Picker style={style.LightInput}
         selectedValue={theme}
         onValueChange={(itemValue, itemIndex) => setTheme(itemValue)}
       >
         <Picker.Item label="Escuro" value="Escuro" />
         <Picker.Item label="Claro" value="Claro" />
       </Picker>
-      <Text>Intervalo de notificações:</Text>
-      <Picker
+      <Text style={style.LightLabel}>Intervalo de notificações:</Text>
+      <Picker style={style.LightInput}
         selectedValue={interval}
         onValueChange={(itemValue, itemIndex) => setInterval(itemValue)}
       >
@@ -47,8 +48,8 @@ export default function Settings() {
         <Picker.Item label="4 horas" value="14400" />
       </Picker>
 
-      <TouchableOpacity onPress={handleSaveSettings}>
-        <Text>Salvar</Text>
+      <TouchableOpacity style={style.LightButton} onPress={handleSaveSettings}>
+        <Text style={style.LightTextSetting}>Salvar</Text>
       </TouchableOpacity>
     </View>
   );

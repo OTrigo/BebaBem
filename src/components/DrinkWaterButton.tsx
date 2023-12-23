@@ -2,6 +2,7 @@ import { TouchableOpacity, Image } from "react-native";
 import { View, Text } from "react-native";
 import LottieView from "lottie-react-native";
 import Storage from "../services/Storage";
+import styles from "../style/globalTheme";
 
 export const equi = 0.055;
 
@@ -12,6 +13,7 @@ interface DrinkWaterProps {
   setWaterInBottle: React.Dispatch<
     React.SetStateAction<{ old: number; new: number }>
   >;
+  url: any;
 }
 
 const DrinkWaterButton = ({
@@ -19,6 +21,7 @@ const DrinkWaterButton = ({
   animationRef,
   waterInBottle,
   setWaterInBottle,
+  url,
 }: DrinkWaterProps) => {
   function handleAdd(value: number) {
     Storage(value);
@@ -41,14 +44,9 @@ const DrinkWaterButton = ({
   return (
     <View>
       <TouchableOpacity onPress={() => handleAdd(qtdWaterButton)}>
-        <Image
-          style={{ width: 100, height: 100 }}
-          source={{
-            uri: "https://cdn-icons-png.flaticon.com/512/1864/1864846.png",
-          }}
-        />
+        <Image style={{ width: 100, height: 100 }} source={url} />
       </TouchableOpacity>
-      <Text>{qtdWaterButton}ml</Text>
+      <Text style={styles.LightText}>{qtdWaterButton}ml</Text>
     </View>
   );
 };

@@ -20,7 +20,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/splash.png",
+        "foregroundImage": "./assets/bebabemIcon.png",
         "backgroundColor": "#3688FA"
       }
     },
