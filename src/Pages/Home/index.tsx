@@ -10,8 +10,10 @@ import DrinkWaterButton from "../../components/DrinkWaterButton";
 import Animation from "../../services/Animation";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import GetData from "../../services/GetData";
+import { useTheme } from "../../contexts/DarkAndLight";
 
-export default function Home({ navigation }: any) {
+export default function Home({ navigation }: any ) {
+  const {isLightMode} = useTheme();
   const animationRef = useRef<LottieView>(null);
   const [waterInBottle, setWaterInBottle] = useState({
     old: 0,

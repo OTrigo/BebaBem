@@ -2,6 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../Pages/Home";
 import Settings from "../Pages/Settings";
 
+
 const Stack = createStackNavigator();
 
 export default function Stacks() {

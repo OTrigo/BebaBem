@@ -2,9 +2,11 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useTheme } from "../../contexts/DarkAndLight";
 
 export default function Settings() {
-  const [theme, setTheme] = useState("claro");
+  const {isLightMode, loadTheme} = useTheme();
+  const [theme, setTheme] = useState("Light");
   const [interval, setInterval] = useState("7200");
   let values: any;
   async function pegardados() {
@@ -24,6 +26,8 @@ export default function Settings() {
   async function handleSaveSettings() {
     await AsyncStorage.setItem("theme", theme);
     await AsyncStorage.setItem("interval", interval);
+    await loadTheme();
+    console.log(isLightMode)
   }
 
   return (
@@ -33,8 +37,8 @@ export default function Settings() {
         selectedValue={theme}
         onValueChange={(itemValue, itemIndex) => setTheme(itemValue)}
       >
-        <Picker.Item label="Escuro" value="Escuro" />
-        <Picker.Item label="Claro" value="Claro" />
+        <Picker.Item label="Escuro" value="Dark" />
+        <Picker.Item label="Claro" value="Light" />
       </Picker>
       <Text>Intervalo de notificações:</Text>
       <Picker
