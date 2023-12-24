@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import * as Notfications from "expo-notifications";
+import * as Notifications from "expo-notifications";
 import messages from '../assets/JSON/messages.json'
 
 
@@ -10,7 +10,8 @@ export default async function Notfication() {
 
   const message = messages;
   const Notify = async () => {
-    await Notfications.scheduleNotificationAsync({
+    await Notifications.cancelAllScheduledNotificationsAsync();
+    await Notifications.scheduleNotificationAsync({
       content: {
         title: "Vamos beber Agua",
         body: message.mensagens[random],
